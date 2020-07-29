@@ -1,0 +1,989 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+	<style>
+		body {
+			font-family: sans-serif;
+			font-size: 16px;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		small,
+		svg {
+			font-size: 60%;
+		}
+
+		button {
+			background-color: gainsboro;
+			border: 1px solid lightgrey;
+			cursor: pointer;
+			transition: all 500ms ease;
+		}
+
+		button:hover {
+			background-color: lightgrey;
+		}
+
+		button.active {
+			background-color: black;
+			color: white;
+		}
+
+		hr {
+			border-color: gainsboro;
+		}
+
+		#chart {
+			height: 512px;
+			width: 512px;
+		}
+
+		.block {
+			display: block;
+		}
+
+		.content-center {
+			justify-content: center;
+		}
+
+		.fill-current {
+			fill: currentColor;
+		}
+
+		.flex {
+			display: flex;
+		}
+
+		.items-center {
+			align-items: center;
+		}
+
+		.list-complete-item {
+			transition: all 500ms;
+		}
+
+		.list-complete-enter,
+		.list-complete-leave-to {
+			letter-spacing: .1rem;
+			opacity: 0;
+			transform: translateX(-1rem);
+		}
+
+		.list-complete-leave-active {
+			position: absolute;
+		}
+
+		.mb-2 {
+			margin-bottom: .5rem;
+			font-size: 25px;
+			display: flex;
+			align-items: center;
+		}
+
+		.mb-4 {
+			margin-bottom: 1rem;
+		}
+
+		.min-h-288 {
+			min-height: 288px;
+		}
+
+		.ml-auto {
+			margin-left: auto;
+		}
+
+		.pl-8 {
+			padding-left: 2rem;
+		}
+
+		.pl-8 span {
+			font-size: 25px;
+			display: flex;
+			align-items: center;
+		}
+
+		.pt-8 {
+			padding-top: 2rem;
+		}
+
+		.px-4 {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+
+		.py-2 {
+			padding-bottom: .5rem;
+			padding-top: .5rem;
+		}
+
+		.text-center {
+			text-align: center;
+		}
+
+		.text-darkred {
+			color: darkred;
+		}
+
+		.text-gray {
+			color: gray;
+		}
+
+		.text-indianred {
+			color: indianred;
+		}
+
+		.uppercase {
+			text-transform: uppercase;
+		}
+
+		.w-4 {
+			width: 1rem;
+		}
+
+		.w-full {
+			width: 100%;
+		}
+
+		th,
+		td {
+			border: 1px solid white;
+		}
+
+		canvas {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			height: 100vh;
+		}
+
+		a:link,
+		a:visited {
+			color: #4682b4;
+		}
+
+		a:hover {
+			color: #4169e1;
+		}
+
+		#main {
+			width: 900px;
+			height: 700px;
+		}
+
+		#main div {
+			color: white;
+			/* top: 0!important;
+			left: 0!important; */
+			width: 900px;
+			height: 700px;
+		}
+
+		#main canvas {
+			color: white;
+		}
+	</style>
+
+
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+
+				<section>
+					<h4>Аудит рекламных кабинетов компании <span style="color: aqua;">Вэд-Юг</span> в системе <span
+							style="color: #4285F4;">G</span><span style="color: #EA4335;">o</span><span
+							style="color: #FBBC05;">o</span><span style="color: #4285F4;">g</span><span
+							style="color: #34A853;">l</span><span style="color: #EA4335;">e</span> Ads</h4>
+				</section>
+
+				<section>
+					<h6 style="text-align: left; color: aqua;">Ошибки в текущих рекламных компаниях</h6>
+					<div style="text-align: left;">
+						<p>На уровне рекламных компаний</p>
+						<ol style="font-size: 25px;">
+							<li style="padding-top: 12px;">
+								В рекламных кампаниях «ВЭД Юг - таможенный
+								брокер_customs_broker», «ВЭД ЮГ START» и «Таможенное оформление» используется стратегия
+								«Максимальное количество кликов».й
+							</li>
+							<li style="padding-top: 12px;">
+								В рекламной кампании «ТН ВЭД ХХ ХХ СЛОВА» используется
+								стратегия «Целевая цена за конверсию» при отсутствии рабочих конверсий в Google
+								Analytics.
+							</li>
+							<li style="padding-top: 12px;">
+								Географический таргетинг в рекламных кампаниях отличен друг от друга.
+							</li>
+						</ol>
+						<p>На уровне объявлений</p>
+						<ol style="font-size: 25px;">
+							<li style="padding-top: 12px;">
+								Отсутствие уточнений, дополнительных ссылок и структурированных описаний
+							</li>
+							<li style="padding-top: 12px;">
+								Отсутствие номера телефона в объявлениях
+							</li>
+							<li style="padding-top: 12px;">
+								Отсутствие подключенного кабинета Google.Business
+							</li>
+						</ol>
+					</div>
+				</section>
+				<section>
+					<p>На уровне ключевых фраз</p>
+					<ol style="font-size: 25px;">
+						<li style="padding-top: 12px;">
+							Отсутствие проработанной структуры семантического ядра
+						</li>
+						<li style="padding-top: 12px;">
+							Недоработанная семантика
+						</li>
+						<li style="padding-top: 12px;">
+							Некорректная семантика (слишком широкая: «импорт»)
+						</li>
+						<li style="padding-top: 12px;">
+							Дубли ключевых фраз
+						</li>
+						<li style="padding-top: 12px;">
+							Отсутствие минус-фраз (только базовый список)
+						</li>
+						<li style="padding-top: 12px;">
+							Не проработанные ставки (часть ключевых слов не работает)
+						</li>
+					</ol>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Стратегия «Максимальное количество кликов»</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Стратегия «Максимальное количество конверсий»</h5>
+							</li>
+						</ul>
+					</div>
+					<img style="height: 300px; width: 800px; margin-bottom: 0px; padding-bottom: 0px;"
+						src="./img/image5.png">
+					<img style="height: 300px; margin-top: 0px; padding-top: 0px;" src="./img/image6.png">
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Географический таргетинг в рекламных кампаниях отличен друг от друга без причин</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Отсутствие уточнений, дополнительных ссылок и структурированных описаний</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Отсутствие номера телефона в объявлениях</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Отсутствие подключенного кабинета Google.Business</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Отсутствие проработанной структуры семантического ядра</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Недоработанная семантика</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Некорректная семантика</h5>
+							</li>
+						</ul>
+						<img style="height: 500px; margin-bottom: 0px; padding-bottom: 0px;" src="./img/image7.png">
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Дубли ключевых фраз</h5>
+							</li>
+						</ul>
+						<img style="height: 500px; margin-bottom: 0px; padding-bottom: 0px;" src="./img/image8.png">
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Отсутствие минус-фраз</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Не проработанные ставки</h5>
+							</li>
+						</ul>
+						<img style="height: 500px; margin-bottom: 0px; padding-bottom: 0px;" src="./img/image9.png">
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Резюме и перспективы</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section style="color: rgb(255, 255, 255);">
+				<section>
+					<h3>Аудит рекламных кабинетов компании Вэд-Юг в системе Яндекс.Директ</h3>
+				</section>
+				<section>
+					<h6 style="text-align: left; color: aqua;">Ошибки в текущих рекламных компаниях</h6>
+					<div style="text-align: left;">
+						<p>На уровне рекламных компаний</p>
+						<ol style="font-size: 25px;">
+							<li style="padding-top: 12px;">Не используются инструменты оптимизации рекламных кампаний
+							</li>
+							<li style="padding-top: 12px;">Пониженная корректировка ставок для мобильных устройств</li>
+							<li style="padding-top: 12px;">Недостаточно широкий геотаргетинг</li>
+							<li style="padding-top: 12px;">Отключение эффективных рекламных кампаний</li>
+						</ol>
+						<p>На уровне объявлений</p>
+						<ol style="font-size: 25px;">
+							<li style="padding-top: 12px;">Отсутствие установленного в визитки статического коллтрекинга
+							</li>
+							<li style="padding-top: 12px;">Отсутствие дополнительных текстов объявлений для «А-Б»
+								тестирования</li>
+						</ol>
+					</div>
+				</section>
+				<section style="color: rgb(232, 255, 255);">
+					<div style="text-align: left;">
+						<p>На уровне ключевых фраз</p>
+						<ol style="font-size: 25px;">
+							<li style="padding-top: 12px;">Отсутствие проработанной структуры семантического ядра</li>
+							<li style="padding-top: 12px;">Недоработанная семантика</li>
+							<li style="padding-top: 12px;">Некорректная семантика (околоцелевая: «доставка грузов из
+								Китая»)</li>
+							<li style="padding-top: 12px;">Не проработанные ставки (часть ключевых слов не работает)
+							</li>
+						</ol>
+					</div>
+				</section>
+				<section style="color: rgb(232, 255, 255);">
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								Не используются инструменты оптимизации рекламных кампаний
+							</li>
+						</ul>
+						<img style="height: 300px;" src="./img/image2.png">
+					</div>
+				</section>
+				<section>
+					<div style="text-align: left;">
+						<ul>
+							<li style="font-size: 20px;">
+								Пониженная корректировка ставок для мобильных устройств
+							</li>
+						</ul>
+						<p style="text-align: left; font-size: 25px;">
+							Повышенная финансовая эффективность рекламы в Google по сравнению с Яндексом свидетельствует
+							о высоких перспективах мобильного трафика, поскольку пользователи Google в 65-70% являются
+							именно мобильными. Понижение объема мобильного трафика из Яндекс может являться одной из
+							причин
+							снижения эффективности.
+						</p>
+					</div>
+				</section>
+				<section>
+					<div style="text-align: left;">
+						<ul>
+							<li style="font-size: 25px;">
+								Недостаточно широкий геотаргетинг
+							</li>
+						</ul>
+						<p style="text-align: left; font-size: 25px;">
+							В настоящий момент в рекламных кампаниях используются следующие настройки таргетинга:
+						</p>
+						<ul style="font-size: 25px;">
+							<li>Москва и область</li>
+							<li>Краснодар</li>
+							<li>Новороссийск</li>
+							<li>Сочи</li>
+							<li>Ростов-на-Дону</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								Отключение эффективных рекламных кампаний
+							</li>
+						</ul>
+						<img style="height: 300px;" src="./img/image3.png">
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Отсутствие дополнительных текстов объявлений для «А-Б» тестирования</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Недоработанная семантика</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Некорректная семантика</h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<div>
+						<ul>
+							<li style="font-size: 30px;">
+								<h5>Не проработанные ставки</h5>
+							</li>
+						</ul>
+					</div>
+					<img style="height: 500px;" src="./img/image4.png">
+				</section>
+
+				<section>
+					<div>
+						<h4>Резюме и перспективы</h4>
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>показатели статистики</h5>
+					<div id="donut-app" class="content-center flex items-center">
+						<div id="datasets" class="min-h-288">
+							<small class="block mb-4 text-gray uppercase">Январь - Июнь</small>
+							<button v-on:click="currentSetIndex = 0" class="block mb-2 px-4 py-2 uppercase w-full"
+								:class="{ 'active': currentSetIndex === 0 }">Заявки</button>
+							<button v-on:click="currentSetIndex = 1" class="block mb-2 px-4 py-2 uppercase w-full"
+								:class="{ 'active': currentSetIndex === 1 }">Клиенты</button>
+							<button v-on:click="currentSetIndex = 2" class="block mb-2 px-4 py-2 uppercase w-full"
+								:class="{ 'active': currentSetIndex === 2 }">Выручка</button>
+							<button v-on:click="currentSetIndex = 3" class="block mb-2 px-4 py-2 uppercase w-full"
+								:class="{ 'active': currentSetIndex === 3 }">Расходы</button>
+							<button v-on:click="currentSetIndex = 4" class="block mb-2 px-4 py-2 uppercase w-full"
+								:class="{ 'active': currentSetIndex === 4 }">Итог</button>
+						</div>
+						<div id="chart"></div>
+						<div id="legend" class="min-h-288">
+							<small class="block mb-4 text-gray uppercase">Показатели</small>
+							<transition-group name="list-complete" tag="ul">
+								<li v-for="item in legendItems" :key="item.label" class="flex list-complete-item"
+									:class="{
+										'text-darkred': item.type === 'stick',
+										'text-gray': item.type === 'band',
+										'text-indianred': item.type === 'interest',
+									}">
+									<div class="mb-2">{{ item.label }}</div>
+									<div class="ml-auto pl-8">
+										<animated-number :value="item.value"></animated-number>
+									</div>
+								</li>
+							</transition-group>
+							<hr class="mb-4">
+							<div class="mb-2">
+								<svg viewBox="0 0 1 1" class="fill-current text-darkred w-4">
+								</svg>
+								<animated-number :value="percentMakeup.sticks"></animated-number>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<table style="font-size: 17px; border: 1px solid white;">
+						<caption>Яндекс Поиск</caption>
+						<thead>
+							<tr>
+								<th>Ключевое слово</th>
+								<th>Цена клика</th>
+								<th>Расход</th>
+								<th>Продажи</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>доставка из Китая</td>
+								<td>70,88</td>
+								<td>3473,33</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>доставка грузов из Китая</td>
+								<td>130,05</td>
+								<td>1690,64</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка из Китая в Россию</td>
+								<td>37,77</td>
+								<td>868,69</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка сборных грузов из Китая</td>
+								<td>134,79</td>
+								<td>808,74</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка груза из Китая</td>
+								<td>148,97</td>
+								<td>744,84</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка сборных грузов из Китая</td>
+								<td>134,79</td>
+								<td>808,74</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка из китая сборных грузов</td>
+								<td>65,17</td>
+								<td>456,2</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Cколько стоит привести груз с Китая официальный сайт</td>
+								<td>149,88</td>
+								<td>449,63</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка грузов из Китая контейнерами</td>
+								<td>213,05</td>
+								<td>426,1</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка груза из Китая в Россию</td>
+								<td>423,26</td>
+								<td>423,26</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка контейнера из Китая</td>
+								<td>414,59</td>
+								<td>414,59</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка грузов из Китая в Москву</td>
+								<td>398,81</td>
+								<td>398,81</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Калькулятор доставки товаров из Китая</td>
+								<td>385,1</td>
+								<td>385,1</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка товаров из Китая в Россию</td>
+								<td>188,43</td>
+								<td>376,86</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка с Китая</td>
+								<td>345,04</td>
+								<td>345,04</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Перевозка грузов из Китая цена за кг</td>
+								<td>309,19</td>
+								<td>309,19</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Проверить отслеживание почтовых отправлений из Китая</td>
+								<td>61,67</td>
+								<td>308,36</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Авиаперевозки из Китая срок</td>
+								<td>305,08</td>
+								<td>305,08</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Поставки с Китая в Россию</td>
+								<td>302,58</td>
+								<td>302,58</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Оптовые поставки из Китая</td>
+								<td>99,24</td>
+								<td>297,71</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Оптовые поставки из Китая</td>
+								<td>99,24</td>
+								<td>297,71</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Компании логистика из Китая выкуп и доставка в Москву рейтинг</td>
+								<td>296,37</td>
+								<td>296,37</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<table style="font-size: 17px; border: 1px solid white;">
+						<thead>
+							<tr>
+								<th>Ключевое слово</th>
+								<th>Цена клика</th>
+								<th>Расход</th>
+								<th>Продажи</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Привезти сборный груз из Китая организации</td>
+								<td>295,19</td>
+								<td>295,19</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка из Китая грузов</td>
+								<td>58,29</td>
+								<td>291,43</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка грузов из Китая рейтинг компаний</td>
+								<td>283,8</td>
+								<td>283,8</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Доставка сборных грузов из Китая от 1 кг</td>
+								<td>241,85</td>
+								<td>241,85</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Поставки товара с Китая в Россию</td>
+								<td>240,94</td>
+								<td>240,94</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Логистика из Китая в Россию</td>
+								<td>235,52</td>
+								<td>235,52</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Контейнерные перевозки из Шанхая</td>
+								<td>229,59</td>
+								<td>229,59</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td colspan="2">Итого</td>
+								<td>15448,36</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<table style="font-size: 17px; border: 1px solid white;">
+						<caption>Гугл Поиск</caption>
+						<thead>
+							<tr>
+								<th>Ключевое слово</th>
+								<th>Цена клика</th>
+								<th>Расход</th>
+								<th>Продажи</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Импорт</td>
+								<td>25</td>
+								<td>15618</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Импорт товаров</td>
+								<td>24</td>
+								<td>3802</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Импорт</td>
+								<td>26</td>
+								<td>3272</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>экспорт России</td>
+								<td>25</td>
+								<td>3977</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Экспорт Товаров</td>
+								<td>24</td>
+								<td>718</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Экспорт Нефти</td>
+								<td>24</td>
+								<td>430</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td>Растаможка</td>
+								<td>24</td>
+								<td>13279</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td colspan="2">Итого</td>
+								<td>41096</td>
+								<td>0</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<div id="main"></div>
+				</section>
+				<section>
+					<h5>показатели статистики</h5>
+					<div id="donut-app1" class="content-center flex items-center">
+						<div id="datasets" class="min-h-288">
+							<small class="block mb-4 text-gray uppercase">Январь - Июнь</small>
+							<button v-on:click="currentSetIndex = 0" class="block mb-2 px-4 py-2 uppercase w-full"
+								:class="{ 'active': currentSetIndex === 0 }">Январь</button>
+							<button v-on:click="currentSetIndex = 1" class="block mb-2 px-4 py-2 uppercase w-full"
+								:class="{ 'active': currentSetIndex === 1 }">Февраль</button>
+							<button v-on:click="currentSetIndex = 2" class="block mb-2 px-4 py-2 uppercase w-full"
+								:class="{ 'active': currentSetIndex === 2 }">Март</button>
+							<button v-on:click="currentSetIndex = 3" class="block mb-2 px-4 py-2 uppercase w-full"
+								:class="{ 'active': currentSetIndex === 3 }">Апрель</button>
+							<button v-on:click="currentSetIndex = 4" class="block mb-2 px-4 py-2 uppercase w-full"
+								:class="{ 'active': currentSetIndex === 4 }">Май</button>
+							<button v-on:click="currentSetIndex = 5" class="block mb-2 px-4 py-2 uppercase w-full"
+								:class="{ 'active': currentSetIndex === 5 }">Июнь</button>
+						</div>
+						<div id="chart1"></div>
+						<div id="legend" class="min-h-288">
+							<small class="block mb-4 text-gray uppercase">Показатели</small>
+							<transition-group name="list-complete" tag="ul">
+								<li v-for="item in legendItems" :key="item.label" class="flex list-complete-item"
+									:class="{
+										'text-darkred': item.type === 'stick',
+										'text-gray': item.type === 'band',
+										'text-indianred': item.type === 'interest',
+									}">
+									<div class="mb-2">{{ item.label }}</div>
+									<div class="ml-auto pl-8">
+										<animated-number :value="item.value"></animated-number>
+									</div>
+								</li>
+							</transition-group>
+							<hr class="mb-4">
+							<div class="mb-2">
+								<svg viewBox="0 0 1 1" class="fill-current text-darkred w-4">
+								</svg>
+								<animated-number :value="percentMakeup.sticks"></animated-number>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section>
+				Вывод
+			</section>
+		</div>
+	</div>
+	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/95368/echarts-en.min-440rc1.js"></script>
+	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/95368/royal.js"></script>
+	<script src="./js/bar.js"></script>
+	<script src="https://d3js.org/d3.v5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+	<script src="./js/diogram.js"></script>
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<!-- <script src="./js/script.js"></script> -->
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
