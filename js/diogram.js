@@ -187,7 +187,7 @@ const DonutApp = new Vue({
 		currentSetIndex: 0,
 		data: {
 			labels: [
-				'Визиты с сайтов', 'Прямые визиты', 'Гугл',
+				'Визиты с сайтов', 'Прямые визиты', 'Google',
 				'Яндекс', 'CEO', 'B10I',
 				'B33', 'CS'
 			],
